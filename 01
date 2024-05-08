@@ -1,0 +1,28 @@
+using System;
+
+class VariableHandler
+{
+    private int value;
+
+    // Метод для установки значения переменной
+    public void SetValue(int newValue)
+    {
+        value = newValue;
+    }
+
+    // Метод для вывода значения переменной
+    public void PrintValue()
+    {
+        Console.WriteLine($"Значение переменной: {value}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        VariableHandler handler = new VariableHandler();
+        handler.SetValue(150);
+        handler.PrintValue();
+    }
+}
