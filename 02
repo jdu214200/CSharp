@@ -1,0 +1,50 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+        double[] R = new double[10];
+
+        // Заполняем массив случайными значениями
+        for (int i = 0; i < 10; i++)
+        {
+            R[i] = random.NextDouble() * 100; // Случайные числа от 0 до 100
+        }
+
+        // Вычисляем среднее значение массива
+        double average = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            average += R[i];
+        }
+        average /= 10;
+
+        // Создаем массив K и заполняем его значениями 0 или 1 в зависимости от среднего значения
+        int[] K = new int[10];
+        int count0 = 0;
+        int count1 = 0;
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (R[i] < average)
+            {
+                K[i] = 0;
+                count0++;
+            }
+            else
+            {
+                K[i] = 1;
+                count1++;
+            }
+        }
+
+        // Выводим результаты
+        Console.WriteLine($"Среднее значение массива R: {average}");
+        Console.WriteLine($"Количество 0 в массиве K: {count0}");
+        Console.WriteLine($"Количество 1 в массиве K: {count1}");
+    }
+}
+
+
