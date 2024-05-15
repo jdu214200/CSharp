@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Определяем количество строк и столбцов
+        int rows = 4; // количество строк
+        int cols = 3; // количество столбцов
+
+        // Создаем двумерный массив
+        int[,] array = new int[rows, cols];
+
+        // Заполняем массив значениями, введенными пользователем
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write($"Введите элемент для ячейки [{i}, {j}]: ");
+                array[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        // Выводим транспонированный массив
+        Console.WriteLine("Транспонированный массив:");
+        for (int j = 0; j < cols; j++)
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write(array[i, j] + "\t");
+            }
+            Console.WriteLine(); // Переход к новой строке после каждого столбца
+        }
+    }
+}
