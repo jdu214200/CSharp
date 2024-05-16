@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> myList = new List<string>();
+
+        // Добавляем элементы в список
+        AddElement(myList, "olma");
+        AddElement(myList, "gilos");
+        AddElement(myList, "uzum");
+
+        Console.WriteLine("Меню:");
+        Console.WriteLine("1. Вывести список");
+        Console.WriteLine("2. Удалить элемент");
+        Console.WriteLine("3. Добавить элемент по индексу");
+        Console.WriteLine("4. Проверить наличие элемента");
+        int a = Convert.ToInt32(Console.ReadLine());
+
+        switch (a)
+        {
+            case 1:
+                // Вывод списка
+                PrintList(myList);
+                break;
+            case 2:
+                Console.WriteLine("Введите элемент для удаления:");
+                string elementToRemove = Console.ReadLine();
+                // Удаление элемента
+                RemoveElement(myList, elementToRemove);
+                PrintList(myList);
+                break;
+            case 3:
+                Console.WriteLine("Введите индекс для добавления нового элемента:");
+                int index = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Введите название элемента для добавления:");
+                string elementToAdd = Console.ReadLine();
+                // Добавление нового элемента по индексу
+                InsertAtIndex(myList, index, elementToAdd);
+                PrintList(myList);
+                break;
+            case 4:
+                Console.WriteLine("Введите название элемента для проверки:");
+                string elementToCheck = Console.ReadLine();
+                // Проверка наличия элемента
+                CheckElement(myList, elementToCheck);
+                break;
+            default:
+                Console.WriteLine("Некорректный выбор.");
+                break;
+        }
+    }
+
+    // Функция для добавления нового элемента
+    static void AddElement(List<string> list, string element)
+    {
+        list.Add(element);
+        Console.WriteLine($"\"{element}\" добавлен в список.");
+    }
+
+    // Функция для удаления элемента
+    static void RemoveElement(List<string> list, string element)
+    {
+        if (list.Remove(element))
+            Console.WriteLine($"\"{element}\" удален из списка.");
+        else
+            Console.WriteLine($"\"{element}\" не найден в списке.");
+    }
+
+    // Функция для добавления нового элемента по индексу
+    static void InsertAtIndex(List<string> list, int index, string element)
+    {
+        if (index >= 0 && index <= list.Count)
+        {
+            list.Insert(index, element);
+            Console.WriteLine($"\"{element}\" добавлен в список по индексу {index}.");
+        }
+        else
+        {
+            Console.WriteLine("Некорректный индекс.");
+        }
+    }
+
+    // Функция для вывода списка
+    static void PrintList(List<string> list)
+    {
+        Console.WriteLine("Список:");
+        foreach (string element in list)
+        {
+            Console.WriteLine(element);
+        }
+        Console.WriteLine();
+    }
+
+    // Функция для проверки наличия элемента
+    static void CheckElement(List<string> list, string element)
+    {
+        if (list.Contains(element))
+            Console.WriteLine($"\"{element}\" присутствует в списке.");
+        else
+            Console.WriteLine($"\"{element}\" отсутствует в списке.");
+    }
+}
+
