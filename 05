@@ -1,0 +1,59 @@
+using System;
+
+namespace Computers
+{
+    public class Computer
+    {
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Brand: {Brand}, Model: {Model}");
+        }
+    }
+}
+
+namespace Phones
+{
+    public struct Phone
+    {
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Brand: {Brand}, Model: {Model}");
+        }
+    }
+}
+
+namespace Traffic
+{
+    public enum TrafficLight
+    {
+        Red,
+        Yellow,
+        Green
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Пример использования класса Computer
+        Computers.Computer myComputer = new Computers.Computer();
+        myComputer.Brand = "Acer";
+        myComputer.Model = "Nitro 515 ";
+        myComputer.DisplayInfo();
+
+        // Пример использования структуры Phone
+        Phones.Phone myPhone = new Phones.Phone();
+        myPhone.Brand = "Apple";
+        myPhone.Model = "iPhone 15 Pro Max";
+        myPhone.DisplayInfo();
+
+        // Пример использования перечисления TrafficLight
+        Traffic.TrafficLight currentLight = Traffic.TrafficLight.Red;
+        Console.WriteLine($"Current traffic light is: {currentLight}");
+    }
+}
