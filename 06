@@ -1,0 +1,26 @@
+using System;
+
+public class Book
+{
+    // Fields
+    public string title;
+    public string author;
+    public int pages;
+
+    // Main method
+    public static void Main(string[] args)
+    {
+        // Create an object of the Book class
+        Book myBook = new Book();
+        
+        // Initialize the object fields
+        myBook.title = "C# Programming";
+        myBook.author = "John Doe";
+        myBook.pages = 350;
+
+        // Output the object's data
+        Console.WriteLine("Title: " + myBook.title);
+        Console.WriteLine("Author: " + myBook.author);
+        Console.WriteLine("Pages: " + myBook.pages);
+    }
+}
